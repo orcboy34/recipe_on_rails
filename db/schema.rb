@@ -11,17 +11,13 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.1].define(version: 2026_02_19_031846) do
-  create_schema "extensions"
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "extensions.pg_stat_statements"
   enable_extension "extensions.pgcrypto"
   enable_extension "extensions.uuid-ossp"
-  #enable_extension "graphql.pg_graphql"
   enable_extension "pg_catalog.plpgsql"
-  #enable_extension "vault.supabase_vault"
 
-  create_table "public.sessions", force: :cascade do |t|
+  create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "ip_address"
     t.datetime "updated_at", null: false
@@ -30,14 +26,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_19_031846) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
-  create_table "public.tags", force: :cascade do |t|
+  create_table "tags", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.text "description"
     t.string "name"
     t.datetime "updated_at", null: false
   end
 
-  create_table "public.users", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email_address", null: false
     t.string "password_digest", null: false
@@ -45,6 +41,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_19_031846) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
-  add_foreign_key "public.sessions", "public.users"
-
+  add_foreign_key "sessions", "users"
 end
