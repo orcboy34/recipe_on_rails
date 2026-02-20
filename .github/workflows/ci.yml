@@ -95,9 +95,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      
-      - name: Install pg_graphql extension
-        run: sudo apt-get install --no-install-recommends -y postgresql-client && export PGPASSWORD="postgres" && psql -h localhost -U postgres -d postgres -w -c "CREATE EXTENSION IF NOT EXISTS pg_graphql;"
 
       - name: Run tests
         env:
@@ -138,9 +135,6 @@ jobs:
         with:
           bundler-cache: true
       
-      - name: Install pg_graphql extension
-        run: sudo apt-get install --no-install-recommends -y postgresql-client && export PGPASSWORD="postgres" && psql -h localhost -U postgres -d postgres -w -c "CREATE EXTENSION IF NOT EXISTS pg_graphql;"
-
       - name: Run System Tests
         env:
           RAILS_ENV: test
