@@ -3,6 +3,8 @@ require "test_helper"
 class UnitsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @unit = units(:one)
+    user = users(:one)
+    sign_in_as(user)
   end
 
   test "should get index" do
