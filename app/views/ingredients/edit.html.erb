@@ -1,0 +1,14 @@
+<% content_for :title, "Editing ingredient" %>
+
+<div class="md:w-2/3 w-full">
+  <div class="flex justify-between items-center mb-2">
+    <h1 class="font-bold text-4xl">Editing ingredient</h1>
+    <%= button_to @ingredient, method: :delete, class: "rounded-md px-3.5 py-2.5 bg-red-600 hover:bg-red-500 text-white block font-medium", data: { turbo_confirm: "Are you sure?" } do %>
+      <%= fa_icon("trash") %>&nbsp;Delete
+    <% end %>
+  </div>
+
+  <%= render "form", ingredient: @ingredient %>
+
+  <%= link_to "Back to ingredients", ingredients_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+</div>
