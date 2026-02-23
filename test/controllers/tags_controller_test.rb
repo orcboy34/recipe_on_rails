@@ -22,7 +22,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
       post tags_url, params: { tag: { description: @tag.description, name: @tag.name } }
     end
 
-    assert_redirected_to tag_url(Tag.last)
+    assert_redirected_to tags_url
   end
 
   test "should show tag" do
@@ -37,7 +37,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update tag" do
     patch tag_url(@tag), params: { tag: { description: @tag.description, name: @tag.name } }
-    assert_redirected_to tag_url(@tag)
+    assert_redirected_to tags_url
   end
 
   test "should destroy tag" do

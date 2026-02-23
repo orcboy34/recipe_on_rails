@@ -22,7 +22,7 @@ class UnitsControllerTest < ActionDispatch::IntegrationTest
       post units_url, params: { unit: { abbreviation: @unit.abbreviation, name: @unit.name } }
     end
 
-    assert_redirected_to unit_url(Unit.last)
+    assert_redirected_to units_url
   end
 
   test "should show unit" do
@@ -37,7 +37,7 @@ class UnitsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update unit" do
     patch unit_url(@unit), params: { unit: { abbreviation: @unit.abbreviation, name: @unit.name } }
-    assert_redirected_to unit_url(@unit)
+    assert_redirected_to units_url
   end
 
   test "should destroy unit" do
