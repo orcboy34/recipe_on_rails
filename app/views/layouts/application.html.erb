@@ -29,10 +29,13 @@
         <div class="w-14"><%= link_to "Home", root_path %></div>
         <div class="w-14"><%= button_to "Log out", session_path, method: :delete if authenticated? %></div>
       </div>
-      <div class="flex flex-row place-content-end gap-2 mt-4">
-        <%= link_to "Ingredients", ingredients_path, class:"btn" %>
-        <%= link_to "Tags", tags_path, class:"btn" %>
-        <%= link_to "Units", units_path, class:"btn" %>
+      <div class="flex flex-row place-content-between gap-2 mt-4">
+        <%= link_to "Recipes", recipes_path, class:"btn mt-4" %>
+        <div class="flex flex-row place-content-end gap-2 mt-4">
+          <%= link_to "Ingredients", ingredients_path, class:"btn" %>
+          <%= link_to "Tags", tags_path, class:"btn" %>
+          <%= link_to "Units", units_path, class:"btn" %>
+        </div>
       </div>
     </nav>
     <main class="container mx-auto mt-20 px-5 flex">

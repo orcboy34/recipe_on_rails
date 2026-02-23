@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :recipes
   resources :ingredients
   get "pages/home"
   resources :units
