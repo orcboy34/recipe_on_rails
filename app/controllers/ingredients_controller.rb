@@ -3,7 +3,7 @@ class IngredientsController < ApplicationController
 
   # GET /ingredients or /ingredients.json
   def index
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.order(:name)
   end
 
   # GET /ingredients/1 or /ingredients/1.json
@@ -25,7 +25,7 @@ class IngredientsController < ApplicationController
 
     respond_to do |format|
       if @ingredient.save
-        format.html { redirect_to @ingredient, notice: "Ingredient was successfully created." }
+        format.html { redirect_to ingredients_path, notice: "Ingredient was successfully created." }
         format.json { render :show, status: :created, location: @ingredient }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class IngredientsController < ApplicationController
   def update
     respond_to do |format|
       if @ingredient.update(ingredient_params)
-        format.html { redirect_to @ingredient, notice: "Ingredient was successfully updated.", status: :see_other }
+        format.html { redirect_to ingredients_path, notice: "Ingredient was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @ingredient }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -7,9 +7,7 @@
 
   <div class="flex justify-between items-center mb-2">
     <h1 class="font-bold text-4xl">Ingredients</h1>
-    <%= link_to new_ingredient_path, class: "aspect-square rounded-full size-10 flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white block font-medium" do %>
-      <%= fa_icon("plus") %>
-    <% end %>
+    <%= link_to fa_icon("plus"), new_ingredient_path, title: "New ingredient", class: "aspect-square rounded-full size-10 flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
   </div>
 
   <div id="ingredients" class="grid grid-cols-3 min-w-full gap-3">
