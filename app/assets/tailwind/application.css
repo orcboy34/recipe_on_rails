@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@layer components {
+  .btn {
+    @apply w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium;
+  }
+}
