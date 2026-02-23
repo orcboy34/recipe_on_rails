@@ -23,15 +23,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <nav class="flex flex-col w-full p-4 shadow-lg">
+  <body class="bg-olive-50">
+    <nav class="flex flex-col w-full p-4 shadow-lg bg-white">
       <div class="flex flex-row place-content-between">
         <div class="w-14"><%= link_to "Home", root_path %></div>
         <div class="w-14"><%= button_to "Log out", session_path, method: :delete if authenticated? %></div>
       </div>
       <div class="flex flex-row place-content-end gap-2 mt-4">
-        <div class="btn"><%= link_to "Tags", tags_path %></div>
-        <div class="btn"><%= link_to "Units", units_path %></div>
+        <%= link_to "Tags", tags_path, class:"btn" %>
+        <%= link_to "Units", units_path, class:"btn" %>
       </div>
     </nav>
     <main class="container mx-auto mt-20 px-5 flex">
