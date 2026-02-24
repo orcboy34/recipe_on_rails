@@ -14,6 +14,7 @@ class RecipeIngredientsController < ApplicationController
   # GET /recipe_ingredients/new
   def new
     @recipe_ingredient = RecipeIngredient.new
+    @recipe_ingredient.recipe = @recipe
   end
 
   # GET /recipe_ingredients/1/edit
@@ -26,7 +27,7 @@ class RecipeIngredientsController < ApplicationController
 
     respond_to do |format|
       if @recipe_ingredient.save
-        format.html { redirect_to recipe_ingredients_path(recipe_id: @recipe_ingredient.recipe_id), notice: "Recipe ingredient was successfully created." }
+        format.html { redirect_to edit_recipe_path(id: @recipe_ingredient.recipe_id), notice: "Recipe ingredient was successfully created." }
         format.json { render :show, status: :created, location: @recipe_ingredient }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +40,7 @@ class RecipeIngredientsController < ApplicationController
   def update
     respond_to do |format|
       if @recipe_ingredient.update(recipe_ingredient_params)
-        format.html { redirect_to recipe_ingredients_path(recipe_id: @recipe_ingredient.recipe_id), notice: "Recipe ingredient was successfully updated.", status: :see_other }
+        format.html { redirect_to edit_recipe_path(id: @recipe_ingredient.recipe_id), notice: "Recipe ingredient was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @recipe_ingredient }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,10 +51,11 @@ class RecipeIngredientsController < ApplicationController
 
   # DELETE /recipe_ingredients/1 or /recipe_ingredients/1.json
   def destroy
+    recipe_id = @recipe_ingredient.recipe_id
     @recipe_ingredient.destroy!
 
     respond_to do |format|
-      format.html { redirect_to recipe_ingredients_path, notice: "Recipe ingredient was successfully destroyed.", status: :see_other }
+      format.html { redirect_to edit_recipe_path(id: recipe_id), notice: "Recipe ingredient was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
   end

@@ -23,7 +23,10 @@
 
   <div class="my-5 flex flex-col">
     <%= form.label :recipe_ingredients %>
-    <%= link_to "Edit", recipe_ingredients_path(recipe_id: recipe.id), class: "text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+    <%= render "recipe_ingredients/recipe_ingredients", recipe_ingredients: recipe.recipe_ingredients %>
+    <%= link_to new_recipe_ingredient_path(recipe_id: recipe.id), class: "text-left rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 inline-block font-medium text-white" do %>
+      <%= fa_icon("plus") %>&nbsp;Add ingredient
+    <% end %>
   </div>
 
   <div class="my-5">

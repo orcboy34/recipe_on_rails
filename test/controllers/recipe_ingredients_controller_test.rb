@@ -22,7 +22,7 @@ class RecipeIngredientsControllerTest < ActionDispatch::IntegrationTest
       post recipe_ingredients_url, params: { recipe_ingredient: { amount: @recipe_ingredient.amount, ingredient_id: @recipe_ingredient.ingredient_id, recipe_id: @recipe_ingredient.recipe_id, unit_id: @recipe_ingredient.unit_id } }
     end
 
-    assert_redirected_to recipe_ingredients_url(recipe_id: @recipe_ingredient.recipe_id)
+    assert_redirected_to edit_recipe_path(id: @recipe_ingredient.recipe_id)
   end
 
   test "should show recipe_ingredient" do
@@ -37,14 +37,15 @@ class RecipeIngredientsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update recipe_ingredient" do
     patch recipe_ingredient_url(@recipe_ingredient), params: { recipe_ingredient: { amount: @recipe_ingredient.amount, ingredient_id: @recipe_ingredient.ingredient_id, recipe_id: @recipe_ingredient.recipe_id, unit_id: @recipe_ingredient.unit_id } }
-    assert_redirected_to recipe_ingredients_url(recipe_id: @recipe_ingredient.recipe_id)
+    assert_redirected_to edit_recipe_path(id: @recipe_ingredient.recipe_id)
   end
 
   test "should destroy recipe_ingredient" do
+    recipe_id = @recipe_ingredient.recipe_id
     assert_difference("RecipeIngredient.count", -1) do
       delete recipe_ingredient_url(@recipe_ingredient)
     end
 
-    assert_redirected_to recipe_ingredients_url
+    assert_redirected_to edit_recipe_path(id: recipe_id)
   end
 end
