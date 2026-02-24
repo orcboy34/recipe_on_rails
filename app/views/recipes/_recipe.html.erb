@@ -9,6 +9,8 @@
   </div>
   <div>
     <strong class="block font-medium mb-1">Directions:</strong>
-    <%= recipe.directions %>
+    <div class="prose text-black marker:text-black">
+      <%= markdown(recipe.directions) %>
+    </div>
   </div>
 </div>
