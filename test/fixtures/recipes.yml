@@ -9,3 +9,8 @@ two:
   name: MyString
   description: MyText
   directions: MyText
+
+three:
+  name: ForRecipeIngredientTest
+  description: MyText
+  directions: MyText

@@ -7,3 +7,7 @@ one:
 two:
   name: MyString
   abbreviation: MyString
+
+three:
+  name: ForRecipeIngredientTest
+  abbreviation: MyString

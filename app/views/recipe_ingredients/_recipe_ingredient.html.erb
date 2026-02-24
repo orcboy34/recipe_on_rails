@@ -1,0 +1,6 @@
+<div id="<%= dom_id recipe_ingredient %>" class="w-full sm:w-auto my-5 space-y-5">
+  <div>
+  <div>
+    <%= pluralize(recipe_ingredient.amount, recipe_ingredient.unit.name) %>&nbsp;<%= recipe_ingredient.ingredient.name %>
+  </div>
+</div>
