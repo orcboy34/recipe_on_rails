@@ -8,6 +8,14 @@
     <%= recipe.description %>
   </div>
   <div>
+    <strong class="block font-medium mb-1">Ingredients:</strong>
+    <div class="space-y-2">
+      <% recipe.recipe_ingredients.each do |recipe_ingredient| %>
+        <%= render recipe_ingredient %>
+      <% end %>
+    </div>
+  </div>
+  <div>
     <strong class="block font-medium mb-1">Directions:</strong>
     <div class="prose text-black marker:text-black">
       <%= markdown(recipe.directions) %>

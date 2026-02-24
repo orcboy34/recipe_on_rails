@@ -21,6 +21,11 @@
     <%= form.textarea :description, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": recipe.errors[:description].none?, "border-red-400 focus:outline-red-600": recipe.errors[:description].any?}] %>
   </div>
 
+  <div class="my-5 flex flex-col">
+    <%= form.label :recipe_ingredients %>
+    <%= link_to "Edit", recipe_ingredients_path(recipe_id: recipe.id), class: "text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+  </div>
+
   <div class="my-5">
     <%= form.label :directions %>
     <%= form.textarea :directions, rows: 4, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": recipe.errors[:directions].none?, "border-red-400 focus:outline-red-600": recipe.errors[:directions].any?}] %>
