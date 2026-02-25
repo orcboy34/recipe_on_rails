@@ -24,7 +24,9 @@
   <div class="my-5 flex flex-col">
     <span>Ingredients</span>
     <%= render "recipe_ingredients/recipe_ingredients", recipe_ingredients: recipe.recipe_ingredients %>
-    <%= link_to fa_icon("plus"), new_recipe_ingredient_path(recipe_id: recipe.id), class: "text-left rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 inline-block font-medium text-white"%>
+    <%= link_to new_recipe_ingredient_path(recipe_id: recipe.id), class: "text-left rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 inline-block font-medium text-white" do %>
+      <%= fa_icon("plus") %>&nbsp;Add ingredient
+    <% end %>
   </div>
 
   <div class="my-5">
