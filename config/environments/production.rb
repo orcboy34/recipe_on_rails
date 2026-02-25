@@ -62,8 +62,8 @@ Rails.application.configure do
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via bin/rails credentials:edit.
   config.action_mailer.smtp_settings = {
-    user_name: ENV.fetch("MAILER_SMTP_USERNAME"),
-    password: ENV.fetch("MAILER_SMTP_PASSWORD"),
+    user_name: ENV.fetch("MAILER_SMTP_USERNAME", "api"),
+    password: ENV.fetch("MAILER_SMTP_PASSWORD", "not an actual password"),
     address: ENV.fetch("MAILER_SMTP_ADDRESS", "sandbox.smtp.mailtrap.io"),
     host: ENV.fetch("MAILER_SMTP_HOST", "sandbox.smtp.mailtrap.io"),
     port: ENV.fetch("MAILER_SMTP_PORT", 587),
