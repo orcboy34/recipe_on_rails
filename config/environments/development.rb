@@ -31,6 +31,12 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
+  # Use the letter_opener gem to open emails in the browser instead of sending them.
+  config.action_mailer.delivery_method = :letter_opener
+
+  # Actually try to deliver emails in development (instead of just logging them).
+  config.action_mailer.perform_deliveries = true
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
