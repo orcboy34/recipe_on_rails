@@ -2,12 +2,15 @@
 
 one:
   name: MyString
-  abbreviation: MyString
+  description: MyText
+  directions: MyText
 
 two:
   name: MyString
-  abbreviation: MyString
+  description: MyText
+  directions: MyText
 
 three:
   name: ForRecipeIngredientTest
-  abbreviation: MyString
+  description: MyText
+  directions: MyText

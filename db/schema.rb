@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_23_184505) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_24_031629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,6 +22,26 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_23_184505) do
   create_table "ingredients", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.text "description"
+    t.string "name"
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.float "amount"
+    t.datetime "created_at", null: false
+    t.bigint "ingredient_id", null: false
+    t.bigint "recipe_id", null: false
+    t.bigint "unit_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+    t.index ["unit_id"], name: "index_recipe_ingredients_on_unit_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.text "directions"
     t.string "name"
     t.datetime "updated_at", null: false
   end
@@ -57,5 +77,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_23_184505) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "recipe_ingredients", "units"
   add_foreign_key "sessions", "users"
 end
