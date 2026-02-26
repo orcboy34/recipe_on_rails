@@ -35,7 +35,12 @@ Rails.application.configure do
   # config.action_mailer.delivery_method = :letter_opener
 
   # Use MailTrap's sandbox SMTP server to test email delivery in development.
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :mailtrap
+  config.action_mailer.mailtrap_settings = {
+    api_key: ENV.fetch("MAILER_MAILTRAP_API_KEY", "not an actual API key"),
+    sandbox: true,
+    inbox_id: ENV.fetch("MAILER_MAILTRAP_INBOX_ID", 0)
+  }
   config.action_mailer.smtp_settings = {
     user_name: ENV.fetch("MAILER_SMTP_USERNAME", "api"),
     password: ENV.fetch("MAILER_SMTP_PASSWORD", "not an actual password"),

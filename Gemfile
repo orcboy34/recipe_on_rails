@@ -41,6 +41,9 @@ gem "kamal", require: false
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 
+# Use the MailTrap service to handle email delivery [https://mailtrap.io/]
+gem "mailtrap"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 # Use commonmarker for markdown rendering [https://github.com/gjtorikian/commonmarker]
