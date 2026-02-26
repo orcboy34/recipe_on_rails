@@ -59,6 +59,9 @@ Rails.application.configure do
   # Set the default delivery method to :smtp, and configure the SMTP server for immediate delivery.
   config.action_mailer.delivery_method = :smtp
 
+  # Set host to be used by links generated in mailer templates.
+  config.action_mailer.default_url_options = { host: ENV.fetch("MAILER_DEFAULT_HOST", "example.com") }
+
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via bin/rails credentials:edit.
   config.action_mailer.smtp_settings = {
     user_name: ENV.fetch("MAILER_SMTP_USERNAME", "api"),
