@@ -56,20 +56,13 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-  # Set the default delivery method to :smtp, and configure the SMTP server for immediate delivery.
-  config.action_mailer.delivery_method = :smtp
-
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: ENV.fetch("MAILER_DEFAULT_HOST", "example.com") }
 
-  # Specify outgoing SMTP server. Remember to add smtp/* credentials via bin/rails credentials:edit.
-  config.action_mailer.smtp_settings = {
-    user_name: ENV.fetch("MAILER_SMTP_USERNAME", "api"),
-    password: ENV.fetch("MAILER_SMTP_PASSWORD", "not an actual password"),
-    address: ENV.fetch("MAILER_SMTP_ADDRESS", "sandbox.smtp.mailtrap.io"),
-    host: ENV.fetch("MAILER_SMTP_HOST", "sandbox.smtp.mailtrap.io"),
-    port: ENV.fetch("MAILER_SMTP_PORT", 587),
-    authentication: :plain
+  # Use MailTrap's sandbox SMTP server to handle email delivery.
+  config.action_mailer.delivery_method = :mailtrap
+  config.action_mailer.mailtrap_settings = {
+    api_key: ENV.fetch("MAILER_MAILTRAP_API_KEY", "not an actual API key")
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
