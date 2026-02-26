@@ -85,4 +85,8 @@ test:
 #
 production:
   primary:
-    <<: *default
+    adapter: postgresql
+    encoding: unicode
+    max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    url: <%= ENV["DATABASE_URL"] %>
+    schema_search_path: "public,extensions"
