@@ -32,7 +32,18 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Use the letter_opener gem to open emails in the browser instead of sending them.
-  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
+
+  # Use MailTrap's sandbox SMTP server to test email delivery in development.
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name: ENV.fetch("MAILER_SMTP_USERNAME", "api"),
+    password: ENV.fetch("MAILER_SMTP_PASSWORD", "not an actual password"),
+    address: ENV.fetch("MAILER_SMTP_ADDRESS", "sandbox.smtp.mailtrap.io"),
+    host: ENV.fetch("MAILER_SMTP_HOST", "sandbox.smtp.mailtrap.io"),
+    port: ENV.fetch("MAILER_SMTP_PORT", 587),
+    authentication: :plain
+  }
 
   # Actually try to deliver emails in development (instead of just logging them).
   config.action_mailer.perform_deliveries = true
