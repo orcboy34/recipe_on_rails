@@ -41,14 +41,17 @@ Rails.application.configure do
     sandbox: true,
     inbox_id: ENV.fetch("MAILER_MAILTRAP_INBOX_ID", 0)
   }
-  config.action_mailer.smtp_settings = {
-    user_name: ENV.fetch("MAILER_SMTP_USERNAME", "api"),
-    password: ENV.fetch("MAILER_SMTP_PASSWORD", "not an actual password"),
-    address: ENV.fetch("MAILER_SMTP_ADDRESS", "sandbox.smtp.mailtrap.io"),
-    host: ENV.fetch("MAILER_SMTP_HOST", "sandbox.smtp.mailtrap.io"),
-    port: ENV.fetch("MAILER_SMTP_PORT", 587),
-    authentication: :plain
-  }
+
+  # Use SMTP settings to send real emails in development (only recommended if you have a separate email account for testing).
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   user_name: ENV.fetch("MAILER_SMTP_USERNAME", "api"),
+  #   password: ENV.fetch("MAILER_SMTP_PASSWORD", "not an actual password"),
+  #   address: ENV.fetch("MAILER_SMTP_ADDRESS", "sandbox.smtp.mailtrap.io"),
+  #   host: ENV.fetch("MAILER_SMTP_HOST", "sandbox.smtp.mailtrap.io"),
+  #   port: ENV.fetch("MAILER_SMTP_PORT", 587),
+  #   authentication: :plain
+  # }
 
   # Actually try to deliver emails in development (instead of just logging them).
   config.action_mailer.perform_deliveries = true

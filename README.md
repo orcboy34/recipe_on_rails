@@ -1,24 +1,21 @@
-# README
+# Recipe on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Recipe on Rails is a simple Ruby on Rails app for managing and finding recipes.
+The primary purpose is to help me learn Ruby on Rails.
 
-Things you may want to cover:
+## Dependencies
+* Postgres
+* MailTrap
 
-* Ruby version
+## Current Features
+* View, add, update, and delete:
+  * Recipes
+  * Ingredients
+  * Units of measurement
+  * Tags
+* User password reset via email.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Upcoming Features
+* Searching by name.
+* Tagging recipes.
+* Browse recipes by tag and/or ingredient.
