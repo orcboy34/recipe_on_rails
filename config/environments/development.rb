@@ -32,23 +32,26 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Use the letter_opener gem to open emails in the browser instead of sending them.
-  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener
 
   # Use MailTrap's sandbox SMTP server to test email delivery in development.
-  config.action_mailer.delivery_method = :mailtrap
-  config.action_mailer.mailtrap_settings = {
-    api_key: ENV.fetch("MAILER_MAILTRAP_API_KEY", "not an actual API key"),
-    sandbox: true,
-    inbox_id: ENV.fetch("MAILER_MAILTRAP_INBOX_ID", 0)
-  }
-  config.action_mailer.smtp_settings = {
-    user_name: ENV.fetch("MAILER_SMTP_USERNAME", "api"),
-    password: ENV.fetch("MAILER_SMTP_PASSWORD", "not an actual password"),
-    address: ENV.fetch("MAILER_SMTP_ADDRESS", "sandbox.smtp.mailtrap.io"),
-    host: ENV.fetch("MAILER_SMTP_HOST", "sandbox.smtp.mailtrap.io"),
-    port: ENV.fetch("MAILER_SMTP_PORT", 587),
-    authentication: :plain
-  }
+  # config.action_mailer.delivery_method = :mailtrap
+  # config.action_mailer.mailtrap_settings = {
+  #   api_key: ENV.fetch("MAILER_MAILTRAP_API_KEY", "not an actual API key"),
+  #   sandbox: true,
+  #   inbox_id: ENV.fetch("MAILER_MAILTRAP_INBOX_ID", 0)
+  # }
+
+  # Use SMTP settings to send real emails in development (only recommended if you have a separate email account for testing).
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   user_name: ENV.fetch("MAILER_SMTP_USERNAME", "api"),
+  #   password: ENV.fetch("MAILER_SMTP_PASSWORD", "not an actual password"),
+  #   address: ENV.fetch("MAILER_SMTP_ADDRESS", "sandbox.smtp.mailtrap.io"),
+  #   host: ENV.fetch("MAILER_SMTP_HOST", "sandbox.smtp.mailtrap.io"),
+  #   port: ENV.fetch("MAILER_SMTP_PORT", 587),
+  #   authentication: :plain
+  # }
 
   # Actually try to deliver emails in development (instead of just logging them).
   config.action_mailer.perform_deliveries = true
