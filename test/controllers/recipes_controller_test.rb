@@ -35,7 +35,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
 
   test "should not create recipe with blank name" do
     assert_no_difference("Recipe.count") do
-      post recipes_url, params: { recipe: { description: @recipe.description, directions: @recipe.directions, name: '' } }
+      post recipes_url, params: { recipe: { description: @recipe.description, directions: @recipe.directions, name: "" } }
     end
 
     assert_response :unprocessable_entity

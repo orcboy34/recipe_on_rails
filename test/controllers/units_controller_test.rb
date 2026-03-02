@@ -35,8 +35,8 @@ class UnitsControllerTest < ActionDispatch::IntegrationTest
 
   test "should not create unit with blank name" do
     assert_no_difference("Unit.count") do
-      post units_url, params: { unit: { abbreviation: @unit.abbreviation, name: '' } }
-    end 
+      post units_url, params: { unit: { abbreviation: @unit.abbreviation, name: "" } }
+    end
 
     assert_response :unprocessable_entity
   end
