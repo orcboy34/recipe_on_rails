@@ -19,10 +19,26 @@ class UnitsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create unit" do
     assert_difference("Unit.count") do
-      post units_url, params: { unit: { abbreviation: @unit.abbreviation, name: @unit.name } }
+      post units_url, params: { unit: { abbreviation: @unit.abbreviation, name: "NewUnit" } }
     end
 
     assert_redirected_to units_url
+  end
+
+  test "should not create unit with duplicate name" do
+    assert_no_difference("Unit.count") do
+      post units_url, params: { unit: { abbreviation: @unit.abbreviation, name: @unit.name } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
+  test "should not create unit with blank name" do
+    assert_no_difference("Unit.count") do
+      post units_url, params: { unit: { abbreviation: @unit.abbreviation, name: '' } }
+    end 
+
+    assert_response :unprocessable_entity
   end
 
   test "should show unit" do
