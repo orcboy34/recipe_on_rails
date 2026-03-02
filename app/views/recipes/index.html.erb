@@ -9,6 +9,7 @@
     <h1 class="font-bold text-4xl">Recipes</h1>
     <%= link_to "New recipe", new_recipe_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
   </div>
+  <%= render "shared/search_form", url: recipes_path, search_placeholder: "recipes" %>
 
   <div id="recipes" class="min-w-full divide-y divide-gray-200 space-y-5">
     <% if @recipes.any? %>

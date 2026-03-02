@@ -19,10 +19,26 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ingredient" do
     assert_difference("Ingredient.count") do
-      post ingredients_url, params: { ingredient: { description: @ingredient.description, name: @ingredient.name } }
+      post ingredients_url, params: { ingredient: { description: @ingredient.description, name: "should_create_ingredient" } }
     end
 
     assert_redirected_to ingredients_url
+  end
+
+  test "should not create ingredient with duplicate name" do
+    assert_no_difference("Ingredient.count") do
+      post ingredients_url, params: { ingredient: { description: @ingredient.description, name: @ingredient.name } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
+  test "should not create ingredient with blank name" do
+    assert_no_difference("Ingredient.count") do
+      post ingredients_url, params: { ingredient: { description: @ingredient.description, name: "" } }
+    end
+
+    assert_response :unprocessable_entity
   end
 
   test "should show ingredient" do

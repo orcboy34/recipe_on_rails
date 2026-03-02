@@ -19,10 +19,26 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create tag" do
     assert_difference("Tag.count") do
-      post tags_url, params: { tag: { description: @tag.description, name: @tag.name } }
+      post tags_url, params: { tag: { description: @tag.description, name: "NewTag" } }
     end
 
     assert_redirected_to tags_url
+  end
+
+  test "should not create tag with duplicate name" do
+    assert_no_difference("Tag.count") do
+      post tags_url, params: { tag: { description: @tag.description, name: @tag.name } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
+  test "should not create tag with blank name" do
+    assert_no_difference("Tag.count") do
+      post tags_url, params: { tag: { description: @tag.description, name: "" } }
+    end
+
+    assert_response :unprocessable_entity
   end
 
   test "should show tag" do

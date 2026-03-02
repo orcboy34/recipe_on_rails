@@ -3,7 +3,11 @@ class TagsController < ApplicationController
 
   # GET /tags or /tags.json
   def index
-    @tags = Tag.order(:name)
+    if params[:search].present?
+      @tags = Tag.where("name ILIKE ?", "%#{params[:search]}%").order(:name)
+    else
+      @tags = Tag.order(:name)
+    end
   end
 
   # GET /tags/1 or /tags/1.json

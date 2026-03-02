@@ -1,0 +1,6 @@
+<%= form_with url: local_assigns[:url], method: :get do |form| %>
+  <div class="flex flex-col sm:flex-row items-center space-x-0 sm:space-x-2 space-y-2 sm:space-y-0 mt-5">
+    <%= form.search_field :search, placeholder: "Search #{local_assigns[:search_placeholder]}...", class: "border border-gray-300 rounded-md px-3 py-2 w-full sm:w-auto" %>
+    <%= form.submit "Search", class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium mt-2 sm:mt-0" %>
+  </div>
+<% end %>

@@ -9,8 +9,9 @@
     <h1 class="font-bold text-4xl">Ingredients</h1>
     <%= link_to fa_icon("plus"), new_ingredient_path, title: "New ingredient", class: "aspect-square rounded-full size-10 flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
   </div>
+  <%= render "shared/search_form", url: ingredients_path, search_placeholder: "ingredients" %>
 
-  <div id="ingredients" class="grid grid-cols-3 min-w-full gap-3">
+  <div id="ingredients" class="grid grid-cols-3 min-w-full gap-3 mt-4">
     <% if @ingredients.any? %>
       <% @ingredients.each do |ingredient| %>
         <%= link_to edit_ingredient_path(ingredient), class: "flex justify-between items-top bg-blue-50 border-2 border-blue-200 rounded-md p-2" do %>

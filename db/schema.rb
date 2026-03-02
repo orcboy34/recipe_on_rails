@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_26_172257) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_02_200025) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_26_172257) do
     t.text "description"
     t.string "name"
     t.datetime "updated_at", null: false
+    t.index "lower((name)::text)", name: "index_ingredients_on_lower_name", unique: true
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_26_172257) do
     t.text "directions"
     t.string "name"
     t.datetime "updated_at", null: false
+    t.index "lower((name)::text)", name: "index_recipes_on_lower_name", unique: true
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -202,6 +204,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_26_172257) do
     t.text "description"
     t.string "name"
     t.datetime "updated_at", null: false
+    t.index "lower((name)::text)", name: "index_tags_on_lower_name", unique: true
   end
 
   create_table "units", force: :cascade do |t|
@@ -209,6 +212,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_26_172257) do
     t.datetime "created_at", null: false
     t.string "name"
     t.datetime "updated_at", null: false
+    t.index "lower((name)::text)", name: "index_units_on_lower_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

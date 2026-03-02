@@ -4,7 +4,7 @@ Recipe on Rails is a simple Ruby on Rails app for managing and finding recipes.
 The primary purpose is to help me learn Ruby on Rails.
 
 ## Current Features
-* View, add, update, and delete:
+* View, add, update, delete, and search for:
   * Recipes
   * Ingredients
   * Units of measurement
@@ -12,7 +12,6 @@ The primary purpose is to help me learn Ruby on Rails.
 * User password reset via email.
 
 ## Upcoming Features
-* Searching by name.
 * Tagging recipes.
 * Browse recipes by tag and/or ingredient.
 

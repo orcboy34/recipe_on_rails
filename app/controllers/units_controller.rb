@@ -3,7 +3,11 @@ class UnitsController < ApplicationController
 
   # GET /units or /units.json
   def index
-    @units = Unit.order(:name)
+    if params[:search].present?
+      @units = Unit.where("name ILIKE ?", "%#{params[:search]}%").order(:name)
+    else
+      @units = Unit.order(:name)
+    end
   end
 
   # GET /units/1 or /units/1.json
