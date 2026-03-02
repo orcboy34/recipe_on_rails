@@ -25,6 +25,22 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to recipe_url(Recipe.last)
   end
 
+  test "should not create recipe with duplicate name" do
+    assert_no_difference("Recipe.count") do
+      post recipes_url, params: { recipe: { description: @recipe.description, directions: @recipe.directions, name: @recipe.name } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
+  test "should not create recipe with blank name" do
+    assert_no_difference("Recipe.count") do
+      post recipes_url, params: { recipe: { description: @recipe.description, directions: @recipe.directions, name: '' } }
+    end
+
+    assert_response :unprocessable_entity
+  end
+
   test "should show recipe" do
     get recipe_url(@recipe)
     assert_response :success
