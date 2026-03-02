@@ -3,7 +3,11 @@ class IngredientsController < ApplicationController
 
   # GET /ingredients or /ingredients.json
   def index
-    @ingredients = Ingredient.order(:name)
+    if params[:search].present?
+      @ingredients = Ingredient.where("name ILIKE ?", "%#{params[:search]}%").order(:name)
+    else
+      @ingredients = Ingredient.order(:name)
+    end
   end
 
   # GET /ingredients/1 or /ingredients/1.json
