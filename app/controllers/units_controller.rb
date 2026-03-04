@@ -8,6 +8,7 @@ class UnitsController < ApplicationController
     else
       @units = Unit.order(:name)
     end
+    render partial: "units_results", locals: { units: @units } if turbo_frame_request?
   end
 
   # GET /units/1 or /units/1.json

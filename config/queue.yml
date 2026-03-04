@@ -10,6 +10,11 @@ default: &default
 
 development:
   <<: *default
+  workers:
+    - queues: "*"
+      threads: 3
+      processes: 1
+      polling_interval: 5
 
 test:
   <<: *default

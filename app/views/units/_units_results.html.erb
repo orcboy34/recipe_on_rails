@@ -1,0 +1,15 @@
+<%= turbo_frame_tag "units_results" do %>
+  <div id="units" class="grid grid-cols-3 min-w-full gap-3 mt-4">
+    <% if units.any? %>
+      <% units.each do |unit| %>
+        <%= link_to edit_unit_path(unit), class: "flex justify-between items-top bg-blue-50 border-2 border-blue-200 rounded-md p-2" do %>
+          <div class="flex flex-col sm:flex-row space-x-2 space-y-2">
+              <%= render unit %>
+          </div>
+          <% end %>
+      <% end %>
+    <% else %>
+      <p class="text-center my-10">No units found.</p>
+    <% end %>
+  </div>
+<% end %>
