@@ -8,6 +8,7 @@ class TagsController < ApplicationController
     else
       @tags = Tag.order(:name)
     end
+    return render partial: "tags_results", locals: { tags: @tags } if turbo_frame_request?
   end
 
   # GET /tags/1 or /tags/1.json
