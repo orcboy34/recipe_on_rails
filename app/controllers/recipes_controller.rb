@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
     else
       @recipes = Recipe.order(:name)
     end
-    return render partial: "recipes_results", locals: { recipes: @recipes } if turbo_frame_request?
+    render partial: "recipes_results", locals: { recipes: @recipes } if turbo_frame_request?
   end
 
   # GET /recipes/1 or /recipes/1.json
