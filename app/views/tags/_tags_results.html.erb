@@ -2,7 +2,7 @@
   <div id="tags" class="grid grid-cols-3 min-w-full gap-3 mt-4">
     <% if tags.any? %>
       <% tags.each do |tag| %>
-        <%= link_to edit_tag_path(tag), class: "flex justify-between items-top bg-blue-50 border-2 border-blue-200 rounded-md p-2" do %>
+        <%= link_to edit_tag_path(tag), data: { turbo_frame: "_top" }, class: "flex justify-between items-top bg-blue-50 border-2 border-blue-200 rounded-md p-2" do %>
           <div class="flex flex-col sm:flex-row space-x-2 space-y-2">
               <%= render tag %>
           </div>
