@@ -14,3 +14,9 @@ three:
   name: ForRecipeIngredientTest
   description: MyText
   directions: MyText
+
+four:
+  name: ForTagTest
+  description: MyText
+  directions: MyText
+  tags: one, two
