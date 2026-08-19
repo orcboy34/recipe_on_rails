@@ -45,7 +45,7 @@ gem "thruster", require: false
 gem "mailtrap"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 2.0"
 # Use commonmarker for markdown rendering [https://github.com/gjtorikian/commonmarker]
 gem "commonmarker"
 
