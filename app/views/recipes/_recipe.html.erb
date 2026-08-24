@@ -8,6 +8,18 @@
     <%= recipe.description %>
   </div>
   <div>
+    <strong class="block font-medium mb-1">Tags:</strong>
+    <div id="tags" class="flex">
+      <% recipe.tags.each do |tag| %>
+        <div class="bg-blue-50 border-2 border-blue-200 rounded-md px-2">
+          <div class="space-x-2 space-y-2">
+            <%= render "tags/tag_mini", tag: tag %>
+          </div>
+        </div>
+      <% end %> 
+    </div>
+  </div>
+  <div>
     <strong class="block font-medium mb-1">Ingredients:</strong>
     <div class="space-y-2">
       <% recipe.recipe_ingredients.each do |recipe_ingredient| %>
