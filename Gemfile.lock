@@ -180,7 +180,7 @@ GEM
       net-imap
       net-pop
       net-smtp
-    mailtrap (2.13.0)
+    mailtrap (2.16.0)
       base64
     marcel (1.2.1)
     matrix (0.4.3)
@@ -502,7 +502,7 @@ CHECKSUMS
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   loofah (2.25.2) sha256=2007f746959ac65552456e04b433e83deb22759ab38c838b4445c70e43425918
   mail (2.9.1) sha256=06574eca475253d6c18145dd70af80d0eb970182d55053497c5f4d797ea160e8
-  mailtrap (2.13.0) sha256=ced4f873885419490ec2767831df522ab8469281a752fcbe08e62f0bec841789
+  mailtrap (2.16.0) sha256=a1c0dbf27fe9c41ec9848dd4e7ea7ff4c20f1dba8c420143d1ab8d869a5f183d
   marcel (1.2.1) sha256=1678e9360e32f9eafa917c80029e2f6d10b2715c66a4b87b6d0da9b9cd1f859f
   matrix (0.4.3) sha256=a0d5ab7ddcc1973ff690ab361b67f359acbb16958d1dc072b8b956a286564c5b
   mini_magick (5.3.3) sha256=b3beed8a8cef36bd03666365f14b89cd344da0ecd373af53e617c71bfd426aab
